@@ -8,6 +8,10 @@ const getGoals = (req, res) => {
 //POST api/goals
 //@access Private
 const setGoal =(req,res)=>{
+    if (!req.body.text) {
+        res.status(400)
+        throw new Error("please add some text")
+    }
     res.status(200).json({message:"Set goals"})
 };
 //@desc Edit goal
